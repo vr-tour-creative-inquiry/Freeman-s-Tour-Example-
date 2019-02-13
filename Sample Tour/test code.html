@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+    <head>
+        <title>test tour</title>
+        <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+		
+		<script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+    </head>
+   
+    <body>
+        <a-scene>
+<!-- Assests Management System-->
+			<a-assests>
+				<img id="lecturehall" src="images/PHOTO_0002.jpg">
+				
+				<img id="lobby" src="images/PHOTO_0010.jpg">
+			</a-assests>
+<!-- lobby scene -->
+			<a-sky
+				   src="#lobby"
+				    radius="20"
+				    side="double"
+				   position="0 0 5">
+			</a-sky> 
+			
+		    
+			
+<!-- arrow used to enter the Lecture Hall-->
+			<a-entity 
+					  data-brackets-id="2460"        
+					  geometry="primitive:cone;
+								height:1.5;
+								skipCache:true" 
+					  position="10.48054 2 13.70614" 
+					  rotation="90 180 90" 
+					  material="color:#AA0000;transparent:true" 
+					  scale="1 1 1.03834" 
+					  event-set__Lobby="
+					   _event: click; 
+						_target: #Lobby;	 
+					  active: false"
+					  event-set__LectureHall="
+					   _event: click; 
+						_target: #LectureHall;			 
+					  active: true" 
+					  >
+			</a-entity>
+<!-- arrow used to enter the Lobby -->
+			<a-entity 
+					  data-brackets-id="2460"        
+					  geometry="primitive:cone;
+								height:1.5;
+								skipCache:true" 
+					  position="55 0 5" 
+					  rotation="90 180 90" 
+					  material="color:#AA0000;transparent:true" 
+					  scale="1 1 1.03834" 
+					  event-set__Lobby="
+					   _event: click; 
+						_target: #Lobby;	 
+					  active: true"
+					  event-set__LectureHall="
+					   _event: click; 
+						_target: #LectureHall;			 
+					  active: false" 
+					  >
+			</a-entity>	
+<!-- Lobby camera -->
+			<a-camera 
+					  id="Lobby"
+					  data-brackets-id="2447" 
+					  user-height="1.6" 
+					  active="true" 
+					  position="0 0 5" 
+					  rotation="-13.636395524113595 -92.81916281119338 0" 
+					  look-controls="" 
+					  wasd-controls="adEnabled:false;enabled:false;wsEnabled:false;acceleration:0;easing:0" 
+					  data-aframe-inspector-original-camera=""
+					 >	 
+				
+					<a-entity
+							  cursor position="0 0 -1"
+							  geometry="primitive: sphere; radius: 0.005"
+							  material="color: #000000; shader: flat; opacity: 0.5">
+					</a-entity>
+            </a-camera>
+
+<!-- Lecture hall scene -->
+			<a-sky
+				   src="#lecturehall"
+				   radius="20"
+				   side="double"
+				   position="50 0 5">
+			</a-sky> 
+<!-- Lecture Hall camera-->
+			<a-camera 
+					  id="LectureHall"
+					  data-brackets-id="2447" 
+					  user-height="1.6" 
+					  active="false" 
+					  position="50 0 5" 
+	                 rotation="-13.636395524113595 -92.81916281119338 0" 
+					  look-controls="" 
+					  wasd-controls="adEnabled:false;enabled:false;wsEnabled:false;acceleration:0;easing:0" 
+					  data-aframe-inspector-original-camera="">
+					  <a-entity
+							  cursor position="50 0 -1"
+							 geometry="primitive: sphere; radius: 0.005"
+							  material="color: #000000; shader: flat; opacity: 0.5">
+					  </a-entity>
+			</a-camera>
+			
+			
+		</a-scene>
+    </body>
+</html>
